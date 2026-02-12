@@ -1,1 +1,11 @@
-# repo-template
+
+  # Eco-Friendly Landing Page Design
+
+  This is a code bundle for Eco-Friendly Landing Page Design. The original project is available at https://www.figma.com/design/F4p5Nc3DfSAdD7CsNrxao0/Eco-Friendly-Landing-Page-Design.
+
+  ## Running the code
+
+  Run `npm i` to install the dependencies.
+
+  Run `npm run dev` to start the development server.
+  
