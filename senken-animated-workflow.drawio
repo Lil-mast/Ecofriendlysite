@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-02-20T00:22:00.000Z" agent="5.0" etag="senken-animated-workflow" version="22.1.16" type="device">
+  <diagram name="Senken+1 Animated Workflow" id="senken-animated-workflow">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- User Node -->
+        <mxCell id="user-node" value="👤 User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;shadow=1" vertex="1" parent="1">
+          <mxGeometry x="50" y="200" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Frontend Node -->
+        <mxCell id="frontend-node" value="💻 Frontend App" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;shadow=1" vertex="1" parent="1">
+          <mxGeometry x="220" y="200" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Commerce Node -->
+        <mxCell id="commerce-node" value="🛍️ Commerce" style="shape=hexagon;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;shadow=1" vertex="1" parent="1">
+          <mxGeometry x="390" y="200" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Data Node -->
+        <mxCell id="data-node" value="🗄️ Data Layer" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;shadow=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="200" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- AI Node -->
+        <mxCell id="ai-node" value="🤖 AI Layer" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;shadow=1" vertex="1" parent="1">
+          <mxGeometry x="730" y="200" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Carbon Node -->
+        <mxCell id="carbon-node" value="🌱 Carbon Layer" style="shape=triangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;shadow=1" vertex="1" parent="1">
+          <mxGeometry x="900" y="200" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Verification Node -->
+        <mxCell id="verification-node" value="✅ Verification" style="shape=doubleEllipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;shadow=1" vertex="1" parent="1">
+          <mxGeometry x="1070" y="200" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Marketplace Node -->
+        <mxCell id="marketplace-node" value="💹 Marketplace" style="shape=parallelogram;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;shadow=1" vertex="1" parent="1">
+          <mxGeometry x="1070" y="350" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Finance Node -->
+        <mxCell id="finance-node" value="💰 Finance" style="shape=note;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;shadow=1" vertex="1" parent="1">
+          <mxGeometry x="900" y="350" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Analytics Node -->
+        <mxCell id="analytics-node" value="📊 Analytics" style="shape=step;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;shadow=1" vertex="1" parent="1">
+          <mxGeometry x="730" y="350" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Feedback Node -->
+        <mxCell id="feedback-node" value="🔄 Feedback Loop" style="shape=off-page-connector;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;shadow=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="350" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Animated Connections -->
+        <mxCell id="flow1" value="Request" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#2E7D32;strokeDasharray=5 5;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="170" y="240" as="sourcePoint" />
+            <mxPoint x="220" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow2" value="Browse" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#1976D2;strokeDasharray=5 5;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="240" as="sourcePoint" />
+            <mxPoint x="390" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow3" value="Process" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#F57C00;strokeDasharray=5 5;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="510" y="240" as="sourcePoint" />
+            <mxPoint x="560" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow4" value="Analyze" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#7B1FA2;strokeDasharray=5 5;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="240" as="sourcePoint" />
+            <mxPoint x="730" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow5" value="Validate" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#388E3C;strokeDasharray=5 5;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="850" y="240" as="sourcePoint" />
+            <mxPoint x="900" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow6" value="Verify" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#1976D2;strokeDasharray=5 5;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1020" y="240" as="sourcePoint" />
+            <mxPoint x="1070" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Vertical Flow -->
+        <mxCell id="flow7" value="Trade" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#F57C00;strokeDasharray=5 5;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1130" y="280" as="sourcePoint" />
+            <mxPoint x="1130" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow8" value="Pay" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#7B1FA2;strokeDasharray=5 5;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1070" y="390" as="sourcePoint" />
+            <mxPoint x="1020" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow9" value="Report" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#388E3C;strokeDasharray=5 5;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="900" y="390" as="sourcePoint" />
+            <mxPoint x="850" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow10" value="Insights" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#1976D2;strokeDasharray=5 5;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="390" as="sourcePoint" />
+            <mxPoint x="680" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Feedback Flow -->
+        <mxCell id="flow11" value="Feedback" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#F57C00;strokeDasharray=5 5;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="390" as="sourcePoint" />
+            <mxPoint x="510" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow12" value="Update" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#7B1FA2;strokeDasharray=5 5;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="350" as="sourcePoint" />
+            <mxPoint x="620" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Animated Pulse Nodes -->
+        <mxCell id="pulse1" value="●" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#FF5722" vertex="1" parent="1">
+          <mxGeometry x="185" y="230" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="pulse2" value="●" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#2196F3" vertex="1" parent="1">
+          <mxGeometry x="355" y="230" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="pulse3" value="●" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#FF9800" vertex="1" parent="1">
+          <mxGeometry x="525" y="230" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="pulse4" value="●" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#9C27B0" vertex="1" parent="1">
+          <mxGeometry x="695" y="230" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="pulse5" value="●" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#4CAF50" vertex="1" parent="1">
+          <mxGeometry x="865" y="230" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Status Indicators -->
+        <mxCell id="status1" value="🟢 Active" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="70" y="285" width="60" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="status2" value="🟢 Active" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="240" y="285" width="60" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="status3" value="🟡 Processing" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="410" y="285" width="80" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Title -->
+        <mxCell id="title" value="🚀 Senken+1 Animated Workflow - Real-time Node Visualization" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="50" width="1000" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Animation Instructions -->
+        <mxCell id="instructions-title" value="🎬 Animation Instructions:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="50" y="500" width="300" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="instructions-text" value="1. Open in Draw.io Extension&#xa;2. Select elements → Right-click → Animate&#xa;3. Set animation duration (2-3 seconds)&#xa;4. Choose animation type (fade, slide, pulse)&#xa;5. Set sequence order for workflow flow&#xa;6. Export as animated GIF or HTML" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="50" y="530" width="350" height="150" as="geometry" />
+        </mxCell>
+        
+        <!-- Node Types Legend -->
+        <mxCell id="legend-title" value="🎨 Node Types:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="500" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-text" value="• Rectangle: User/System&#xa;• Ellipse: Application&#xa;• Hexagon: Process&#xa;• Cylinder: Database&#xa;• Cloud: AI/ML Service&#xa;• Triangle: Resource&#xa;• Double Ellipse: Validation&#xa;• Parallelogram: Trading&#xa;• Note: Financial&#xa;• Step: Analytics&#xa;• Off-page: Feedback" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="450" y="530" width="350" height="220" as="geometry" />
+        </mxCell>
+        
+        <!-- Performance Metrics -->
+        <mxCell id="metrics-title" value="⚡ Real-time Metrics:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="850" y="500" width="250" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="metrics-text" value="• Latency: &lt;100ms&#xa;• Throughput: 10K req/s&#xa;• AI Response: &lt;500ms&#xa;• Verification: &lt;2s&#xa;• Trading Speed: &lt;50ms&#xa;• Data Sync: Real-time&#xa;• Uptime: 99.9%&#xa;• Error Rate: &lt;0.1%" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="850" y="530" width="300" height="180" as="geometry" />
+        </mxCell>
+        
+        <!-- Animation Timeline -->
+        <mxCell id="timeline-title" value="📽️ Animation Timeline:" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="780" width="400" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="timeline" value="0s → User → 0.5s → Frontend → 1s → Commerce → 1.5s → Data → 2s → AI → 2.5s → Carbon → 3s → Verification → 3.5s → Marketplace → 4s → Finance → 4.5s → Analytics → 5s → Feedback → Loop" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="50" y="810" width="1200" height="40" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-02-20T00:22:00.000Z" agent="5.0" etag="senken-workflow" version="22.1.16" type="device">
+  <diagram name="Senken+1 Workflow" id="senken-workflow">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- User Layer -->
+        <mxCell id="user-layer" value="User Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Frontend App -->
+        <mxCell id="frontend-app" value="Frontend App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="50" y="140" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Commerce Layer -->
+        <mxCell id="commerce-layer" value="Commerce Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="250" y="50" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Data Layer -->
+        <mxCell id="data-layer" value="Data Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="50" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- AI Layer -->
+        <mxCell id="ai-layer" value="AI Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="650" y="50" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Carbon Layer -->
+        <mxCell id="carbon-layer" value="Carbon Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="850" y="50" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Verification Layer -->
+        <mxCell id="verification-layer" value="Verification Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1050" y="50" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Marketplace Layer -->
+        <mxCell id="marketplace-layer" value="Marketplace Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1050" y="250" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Finance Layer -->
+        <mxCell id="finance-layer" value="Finance Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="850" y="250" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Analytics Layer -->
+        <mxCell id="analytics-layer" value="Analytics Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="650" y="250" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- User Feedback Loop -->
+        <mxCell id="feedback-loop" value="User Feedback Loop" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="250" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Data Flow Arrows - Main Flow -->
+        <mxCell id="flow1" value="User Request" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#2E7D32;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="125" y="110" as="sourcePoint" />
+            <mxPoint x="125" y="140" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="125" y="125" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow2" value="Browse/Shop" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#1976D2" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="80" as="sourcePoint" />
+            <mxPoint x="250" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow3" value="Data Request" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#F57C00" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="80" as="sourcePoint" />
+            <mxPoint x="450" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow4" value="AI Processing" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#C62828" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="80" as="sourcePoint" />
+            <mxPoint x="650" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow5" value="Credit Validation" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#7B1FA2" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="80" as="sourcePoint" />
+            <mxPoint x="850" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow6" value="Verification" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#2E7D32" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1000" y="80" as="sourcePoint" />
+            <mxPoint x="1050" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Vertical Flow -->
+        <mxCell id="flow7" value="Trading" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#1976D2" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1125" y="110" as="sourcePoint" />
+            <mxPoint x="1125" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1125" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow8" value="Payment" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#F57C00" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1050" y="280" as="sourcePoint" />
+            <mxPoint x="1000" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow9" value="Analytics" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#C62828" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="850" y="280" as="sourcePoint" />
+            <mxPoint x="800" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow10" value="Insights" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#7B1FA2" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="650" y="280" as="sourcePoint" />
+            <mxPoint x="600" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Feedback Flow -->
+        <mxCell id="flow11" value="Feedback Data" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#2E7D32;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="450" y="280" as="sourcePoint" />
+            <mxPoint x="400" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow12" value="User Updates" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#7B1FA2;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="525" y="250" as="sourcePoint" />
+            <mxPoint x="525" y="190" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="525" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Bidirectional Arrows for Real-time Communication -->
+        <mxCell id="bidirectional1" value="Real-time Sync" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=1;strokeColor=#666666;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="160" as="sourcePoint" />
+            <mxPoint x="450" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="bidirectional2" value="ML Pipeline" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=1;strokeColor=#666666;dashed=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="650" y="160" as="sourcePoint" />
+            <mxPoint x="850" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Process Indicators -->
+        <mxCell id="process1" value="🔄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20" vertex="1" parent="1">
+          <mxGeometry x="225" y="65" width="30" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="process2" value="🔄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20" vertex="1" parent="1">
+          <mxGeometry x="425" y="65" width="30" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="process3" value="🔄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20" vertex="1" parent="1">
+          <mxGeometry x="625" y="65" width="30" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="process4" value="🔄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20" vertex="1" parent="1">
+          <mxGeometry x="825" y="65" width="30" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="process5" value="🔄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20" vertex="1" parent="1">
+          <mxGeometry x="1025" y="65" width="30" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Title -->
+        <mxCell id="title" value="Senken+1 Dynamic Workflow - Real-time Data Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="380" width="800" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend-title" value="Flow Types:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="50" y="450" width="150" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend1" value="→ Primary Data Flow" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="50" y="480" width="200" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend2" value="⇄ Real-time Communication" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="50" y="510" width="200" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend3" value="⟲ Feedback Loop" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="50" y="540" width="200" height="25" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend4" value="🔄 Active Processing" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="50" y="570" width="200" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Workflow Description -->
+        <mxCell id="workflow-desc" value="Workflow Description:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="450" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="workflow-text" value="1. User initiates request through Frontend App&#xa;2. Commerce Layer handles marketplace interactions&#xa;3. Data Layer processes and stores information&#xa;4. AI Layer provides intelligent insights&#xa;5. Carbon Layer manages credit validation&#xa;6. Verification Layer ensures compliance&#xa;7. Marketplace Layer facilitates trading&#xa;8. Finance Layer handles transactions&#xa;9. Analytics Layer generates insights&#xa;10. User Feedback Loop closes the cycle" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="300" y="480" width="600" height="200" as="geometry" />
+        </mxCell>
+        
+        <!-- Performance Indicators -->
+        <mxCell id="perf-title" value="Real-time Metrics:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="950" y="450" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="perf-metrics" value="• Transaction Speed: &lt;200ms&#xa;• Data Processing: Real-time&#xa;• AI Response: &lt;500ms&#xa;• Verification: &lt;2s&#xa;• Trading Latency: &lt;100ms&#xa;• Analytics Update: Live" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13" vertex="1" parent="1">
+          <mxGeometry x="950" y="480" width="300" height="150" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
