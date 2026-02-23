@@ -1,0 +1,279 @@
+{
+  "name": "Senken+1 Carbon Credit Marketplace Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// User Layer - Entry Point\nconst userData = {\n  userId: $input.first().json.userId || 'user_' + Date.now(),\n  timestamp: new Date().toISOString(),\n  requestType: $input.first().json.requestType || 'browse',\n  sessionData: {\n    browser: $input.first().json.browser || 'unknown',\n    location: $input.first().json.location || 'unknown'\n  }\n};\n\nreturn [{ json: userData }];"
+      },
+      "name": "👤 User Layer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "id": "user-layer",
+      "notes": "Entry point for all user interactions. Handles user authentication, session management, and initial request processing."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Frontend App - React PWA Interface\nconst frontendData = {\n  ...$input.first().json,\n  frontend: {\n    app: 'React PWA',\n    version: '1.0.0',\n    features: ['offline-support', 'push-notifications', 'responsive-design'],\n    uiComponents: ['dashboard', 'marketplace', 'portfolio', 'settings'],\n    performance: {\n      loadTime: '<2s',\n      responseTime: '<100ms'\n    }\n  }\n};\n\nreturn [{ json: frontendData }];"
+      },
+      "name": "💻 Frontend App",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300],
+      "id": "frontend-app",
+      "notes": "React Progressive Web Application handling user interface, offline functionality, and client-side operations."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Commerce Layer - Product Marketplace\nconst commerceData = {\n  ...$input.first().json,\n  commerce: {\n    marketplace: {\n      products: ['carbon-credits', 'esg-investments', 'green-projects'],\n      paymentMethods: ['stripe', 'crypto', 'bank-transfer'],\n      features: ['shopping-cart', 'wishlist', 'order-tracking'],\n      pricing: {\n        model: 'dynamic-pricing',\n        factors: ['market-demand', 'verification-status', 'project-quality']\n      }\n    }\n  }\n};\n\nreturn [{ json: commerceData }];"
+      },
+      "name": "🛍️ Commerce Layer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300],
+      "id": "commerce-layer",
+      "notes": "Product marketplace with payment gateway integration, shopping cart, and order management."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Data Layer - Carbon Footprint Engine\nconst dataData = {\n  ...$input.first().json,\n  data: {\n    carbonEngine: {\n      calculations: ['real-time-footprint', 'historical-trends', 'predictions'],\n      databases: ['esg-database', 'transaction-logs', 'user-profiles'],\n      analytics: ['carbon-offsets', 'impact-metrics', 'sustainability-scores'],\n      storage: {\n        type: 'distributed-database',\n        backup: 'automated',\n        retention: '7-years'\n      }\n    }\n  }\n};\n\nreturn [{ json: dataData }];"
+      },
+      "name": "🗄️ Data Layer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300],
+      "id": "data-layer",
+      "notes": "Carbon footprint calculation engine with ESG database and comprehensive analytics."
+    },
+    {
+      "parameters": {
+        "jsCode": "// AI Layer - MRV ML Models\nconst aiData = {\n  ...$input.first().json,\n  ai: {\n    models: {\n      monitoring: 'real-time-project-tracking',\n      reporting: 'automated-impact-assessment',\n      verification: 'ai-powered-validation',\n      prediction: 'future-impact-forecasting',\n      anomaly: 'fraud-detection'\n    },\n    apis: [\n      'carbon-prediction-api',\n      'verification-api',\n      'impact-scoring-api'\n    ],\n    performance: {\n      accuracy: '>95%',\n      responseTime: '<500ms'\n    }\n  }\n};\n\nreturn [{ json: aiData }];"
+      },
+      "name": "🤖 AI Layer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300],
+      "id": "ai-layer",
+      "notes": "Machine Learning models for Monitoring, Reporting, and Verification (MRV) with predictive analytics."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Carbon Layer - Project Registry\nconst carbonData = {\n  ...$input.first().json,\n  carbon: {\n    registry: {\n      projects: 'verified-environmental-projects',\n      credits: 'blockchain-based-tokens',\n      minting: 'automated-credit-creation',\n      retirement: 'permanent-credit-removal',\n      standards: ['vera', 'gold-standard', 'gcc']\n    },\n    smartContracts: {\n      issuance: 'ERC-721-compliant',\n      trading: 'ERC-1155-compliant',\n      governance: 'community-voting'\n    }\n  }\n};\n\nreturn [{ json: carbonData }];"
+      },
+      "name": "🌱 Carbon Layer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 300],
+      "id": "carbon-layer",
+      "notes": "Project registry with credit minting, smart contracts, and retirement system."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verification Layer - Oracle Validators\nconst verificationData = {\n  ...$input.first().json,\n  verification: {\n    oracles: {\n      validators: 'third-party-data-validation',\n      satellite: 'remote-sensing-monitoring',\n      iot: 'real-time-environmental-data',\n      audit: 'immutable-verification-records'\n    },\n    sources: [\n      'nasa-satellite-data',\n      'iot-sensor-networks',\n      'third-party-auditors'\n    ],\n    quality: {\n      accuracy: '>99%',\n      frequency: 'real-time'\n    }\n  }\n};\n\nreturn [{ json: verificationData }];"
+      },
+      "name": "✅ Verification Layer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 500],
+      "id": "verification-layer",
+      "notes": "Oracle network with satellite/IoT integration for comprehensive project verification."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Marketplace Layer - Credit Trading\nconst marketplaceData = {\n  ...$input.first().json,\n  marketplace: {\n    trading: {\n      engine: 'real-time-order-matching',\n      auctions: ['dutch-auction', 'sealed-bid'],\n      liquidity: 'automated-market-making',\n      algorithms: 'smart-order-routing'\n    },\n    features: {\n      orderBook: 'live-bid-ask-display',\n      priceDiscovery: 'market-based-pricing',\n      settlement: 'instant-trade-execution'\n    }\n  }\n};\n\nreturn [{ json: marketplaceData }];"
+      },
+      "name": "💹 Marketplace Layer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 500],
+      "id": "marketplace-layer",
+      "notes": "Credit trading engine with auction system and liquidity pools."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Finance Layer - Escrow & Payments\nconst financeData = {\n  ...$input.first().json,\n  finance: {\n    payments: {\n      escrow: 'secure-fund-holding',\n      methods: ['stripe', 'paypal', 'crypto-wallets'],\n      wallets: ['metamask', 'walletconnect', 'custodial'],\n      settlement: 'automated-payment-processing'\n    },\n    compliance: {\n      kyc: 'identity-verification',\n      aml: 'anti-money-laundering',\n      regulations: 'financial-authority-compliance'\n    }\n  }\n};\n\nreturn [{ json: financeData }];"
+      },
+      "name": "💰 Finance Layer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 500],
+      "id": "finance-layer",
+      "notes": "Escrow services with multi-currency payment processing and regulatory compliance."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Analytics Layer - Impact Dashboard\nconst analyticsData = {\n  ...$input.first().json,\n  analytics: {\n    dashboard: {\n      metrics: 'real-time-kpi-tracking',\n      reports: 'comprehensive-impact-analysis',\n      visualization: 'interactive-charts-and-graphs',\n      custom: 'tailored-analytics-per-user-type'\n    },\n    insights: {\n      trends: 'historical-pattern-analysis',\n      predictions: 'future-impact-forecasting',\n      optimization: 'performance-improvement-recommendations'\n    }\n  }\n};\n\nreturn [{ json: analyticsData }];"
+      },
+      "name": "📊 Analytics Layer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 500],
+      "id": "analytics-layer",
+      "notes": "Impact dashboard with KPI tracking, custom reports, and predictive analytics."
+    },
+    {
+      "parameters": {
+        "jsCode": "// User Feedback Loop\nconst feedbackData = {\n  ...$input.first().json,\n  feedback: {\n    loop: {\n      collection: 'user-experience-feedback',\n      analysis: 'sentiment-analysis',\n      implementation: 'continuous-improvement',\n      notification: 'update-alerts'\n    },\n    metrics: {\n      satisfaction: 'user-satisfaction-score',\n      engagement: 'interaction-metrics',\n      retention: 'user-retention-rate'\n    }\n  }\n};\n\nreturn [{ json: feedbackData }];"
+      },
+      "name": "🔄 User Feedback Loop",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 500],
+      "id": "feedback-loop",
+      "notes": "Continuous feedback collection and analysis system for user experience improvement."
+    }
+  ],
+  "connections": {
+    "👤 User Layer": {
+      "main": [
+        [
+          {
+            "node": "💻 Frontend App",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "💻 Frontend App": {
+      "main": [
+        [
+          {
+            "node": "🛍️ Commerce Layer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🛍️ Commerce Layer": {
+      "main": [
+        [
+          {
+            "node": "🗄️ Data Layer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🗄️ Data Layer": {
+      "main": [
+        [
+          {
+            "node": "🤖 AI Layer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🤖 AI Layer": {
+      "main": [
+        [
+          {
+            "node": "🌱 Carbon Layer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌱 Carbon Layer": {
+      "main": [
+        [
+          {
+            "node": "✅ Verification Layer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "✅ Verification Layer": {
+      "main": [
+        [
+          {
+            "node": "💹 Marketplace Layer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "💹 Marketplace Layer": {
+      "main": [
+        [
+          {
+            "node": "💰 Finance Layer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "💰 Finance Layer": {
+      "main": [
+        [
+          {
+            "node": "📊 Analytics Layer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📊 Analytics Layer": {
+      "main": [
+        [
+          {
+            "node": "🔄 User Feedback Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔄 User Feedback Loop": {
+      "main": [
+        [
+          {
+            "node": "👤 User Layer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1.0.0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "senken-marketplace-v1"
+  },
+  "id": "senken-plus1-workflow",
+  "tags": [
+    {
+      "createdAt": "2024-02-20T00:00:00.000Z",
+      "updatedAt": "2024-02-20T00:00:00.000Z",
+      "id": "carbon-credits",
+      "name": "Carbon Credits"
+    },
+    {
+      "createdAt": "2024-02-20T00:00:00.000Z",
+      "updatedAt": "2024-02-20T00:00:00.000Z",
+      "id": "marketplace",
+      "name": "Marketplace"
+    },
+    {
+      "createdAt": "2024-02-20T00:00:00.000Z",
+      "updatedAt": "2024-02-20T00:00:00.000Z",
+      "id": "ai-powered",
+      "name": "AI Powered"
+    }
+  ]
+}
