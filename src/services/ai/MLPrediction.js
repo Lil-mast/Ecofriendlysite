@@ -1,4 +1,4 @@
-// File: src/services/ai/MLPrediction.js
+// advanced machine learning prediction service for carbon emissions forecasting, anomaly detection, and project evaluation
 const axios = require('axios');
 const { CarbonEntry } = require('../../models/mongodb');
 const config = require('../../config/environment');
