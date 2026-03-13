@@ -16,6 +16,48 @@ The EcoFriendlySite is designed to help individuals and organizations monitor an
 - **Community Engagement**: Connect with like-minded individuals and share experiences.
 - **Geospatial Analysis**: Identify emission hotspots and analyze regional environmental impact.
 
+## Technologies Used
+
+### Frontend
+- **React 18**: Progressive Web Application framework
+- **TypeScript**: Type-safe development
+- **Tailwind CSS**: Utility-first styling framework
+- **Radix UI**: Accessible component library
+- **Vite**: Fast build tool and development server
+
+### Backend
+- **Node.js**: Server-side JavaScript runtime
+- **Express.js**: Web application framework
+- **PostgreSQL**: Primary database for structured data
+- **MongoDB**: NoSQL database for flexible data storage
+- **Redis**: Caching and session management
+- **GraphQL**: API query language and runtime
+
+### AI & Machine Learning
+- **Python**: Primary ML development language
+- **TensorFlow/PyTorch**: Deep learning frameworks
+- **Scikit-learn**: Machine learning library
+- **Jupyter**: Data science notebooks
+- **MLflow**: ML lifecycle management
+
+### Payment & Commerce
+- **Stripe**: Payment processing and secure transactions
+- **Webhooks**: Real-time payment notifications
+
+### DevOps & Infrastructure
+- **Docker**: Containerization
+- **Kubernetes**: Container orchestration
+- **AWS/GCP**: Cloud infrastructure
+- **GitHub Actions**: CI/CD pipelines
+- **Terraform**: Infrastructure as code
+
+### External APIs & Integrations
+- **Satellite Data**: NASA, ESA, and commercial satellite providers
+- **Weather Data**: Meteorological services integration
+- **Geospatial Services**: HERE API, OpenRouteService API
+- **Electricity Map**: Real-time carbon intensity data
+- **OpenWeather**: Weather data integration
+
 ## Installation
 
 1. Clone the repository:
