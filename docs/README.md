@@ -214,8 +214,10 @@ See [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md) for detailed architecture i
 
 ## Documentation
 
-- [Payment Service Documentation](docs/PAYMENT_SERVICE.md) - Detailed guide on the eco-friendly e-commerce system
+- [Payment Service Documentation](PAYMENT_SERVICE.md) - Detailed guide on the eco-friendly e-commerce system
 - [System Architecture](SYSTEM_ARCHITECTURE.md) - Platform infrastructure overview
+- [Geospatial Features](GEOSPATIAL.md) - How geospatial works: hubs, routes, hotspots, insights, and API
+- [Deploy on Cloudflare](DEPLOY_CLOUDFLARE.md) - Deploy frontend to Cloudflare Pages and backend to Railway/Render/Fly
 
 ## Contributing
 

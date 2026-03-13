@@ -31,7 +31,7 @@ const Profile = () => {
               </div>
               <div className="flex items-center justify-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
                 <MapPin className="h-4 w-4" />
-                <span>San Francisco, CA</span>
+                <span>Nairobi, Kenya</span>
               </div>
               <div className="flex items-center justify-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
                 <Calendar className="h-4 w-4" />

@@ -1,21 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @import "tailwindcss";
+
+/* EcoNexus / Kaleo theme – organic luxury palette */
+@theme {
+  --color-kaleo-sand: #EAE4D9;
+  --color-kaleo-charcoal: #1C1C1C;
+  --color-kaleo-earth: #2A2A2A;
+  --color-kaleo-cream: #F3F0EB;
+  --color-kaleo-terracotta: #8C7B6B;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+}
 
 @layer base {
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply bg-kaleo-terracotta hover:bg-kaleo-earth text-kaleo-cream font-medium py-2 px-4 rounded-lg transition-colors duration-200;
   }
 
   .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply bg-kaleo-sand hover:bg-kaleo-terracotta/20 text-kaleo-earth font-medium py-2 px-4 rounded-lg border border-kaleo-terracotta/30 transition-colors duration-200;
   }
 
   .card {
     @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .text-display {
+    font-size: clamp(2.5rem, 12vw, 6rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+
+  .text-headline {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .text-subheadline {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    line-height: 1.35;
+  }
+
+  .ken-burns {
+    animation: kenBurns 18s ease-in-out infinite alternate;
+  }
+
+  .spin-slow {
+    animation: spinSlow 20s linear infinite;
+  }
+}
+
+@layer utilities {
+  @keyframes kenBurns {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.08) translate(-1.5%, -1%); }
+  }
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 }

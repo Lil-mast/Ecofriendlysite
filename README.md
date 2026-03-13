@@ -41,6 +41,9 @@ Carbon footprint tracking and carbon credit marketplace platform.
 
 Full setup (MongoDB Atlas, Supabase Postgres, Upstash Redis), architecture, and usage: **[docs/README.md](docs/README.md)**.
 
+- **[Geospatial](docs/GEOSPATIAL.md)** – How geo works (nearby hubs, route emissions, hotspots, check-ins).
+- **[Deploy on Cloudflare](docs/DEPLOY_CLOUDFLARE.md)** – Frontend on Cloudflare Pages, API on Railway/Render/Fly.
+
 ## Tech stack
 
 - **Frontend**: React 18, TypeScript, Vite, Tailwind CSS, Radix UI  
