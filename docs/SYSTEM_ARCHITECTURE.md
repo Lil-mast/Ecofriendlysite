@@ -1,8 +1,8 @@
-# Senken+1 Carbon Credit Marketplace - System Architecture
+# EcoNexus Carbon Credit Marketplace - System Architecture
 
 ## Overview
 
-Senken+1 is a comprehensive carbon credit marketplace platform that leverages blockchain technology, AI-powered verification, and multi-layered architecture to create a transparent and efficient ecosystem for carbon trading and environmental impact tracking.
+EcoNexus is a comprehensive carbon credit marketplace platform that leverages AI-powered verification, database-driven credit management, and multi-layered architecture to create a transparent and efficient ecosystem for carbon trading and environmental impact tracking.
 
 ## System Architecture Layers
 
@@ -17,7 +17,7 @@ Senken+1 is a comprehensive carbon credit marketplace platform that leverages bl
 ### 🛍️ Commerce Layer
 **Product Marketplace & Payment Gateway**
 - **Product Catalog**: Carbon credits, environmental projects, ESG products
-- **Payment Processing**: Stripe integration, crypto payments support
+- **Payment Processing**: Stripe integration for secure transactions
 - **Shopping Cart**: Multi-item purchase and bulk transaction support
 - **Order Management**: Transaction history and receipt generation
 - **Pricing Engine**: Dynamic pricing based on market demand and verification status
@@ -39,11 +39,11 @@ Senken+1 is a comprehensive carbon credit marketplace platform that leverages bl
 - **Anomaly Detection**: Fraud prevention and quality assurance
 
 ### 🌱 Carbon Layer
-**Project Registry & Credit Minting**
+**Project Registry & Credit Management**
 - **Project Registry**: Verified environmental projects database
-- **Credit Minting**: Blockchain-based carbon credit creation
-- **Smart Contracts**: Automated credit issuance and management
-- **Token Standards**: ERC-721/ERC-1155 compliant carbon tokens
+- **Credit Creation**: API-based carbon credit generation and management
+- **Database Storage**: Secure credit tracking and transaction records
+- **Standards Compliance**: VERA, Gold Standard, and GCC certification support
 - **Retirement System**: Permanent credit removal and offset tracking
 
 ### ✅ Verification Layer
@@ -63,20 +63,11 @@ Senken+1 is a comprehensive carbon credit marketplace platform that leverages bl
 - **Price Discovery**: Market-based pricing mechanisms
 
 ### 💰 Finance Layer
-**Escrow Wallet & Payment Integration**
+**Escrow & Payment Integration**
 - **Escrow Services**: Secure fund holding during transactions
-- **Multi-Currency Support**: Fiat and cryptocurrency payments
-- **Wallet Integration**: MetaMask, WalletConnect, and custodial options
+- **Payment Processing**: Stripe integration for secure transactions
 - **Settlement Engine**: Automated payment processing
 - **Compliance**: KYC/AML and regulatory adherence
-
-### 🏛️ Governance Layer
-**Blockchain Ledger & DAO Voting**
-- **Blockchain Infrastructure**: Distributed ledger technology
-- **DAO Framework**: Decentralized autonomous organization
-- **Voting System**: Token-weighted decision making
-- **Proposal Management**: Community-driven governance
-- **Treasury Management**: Community fund allocation
 
 ### 📈 Analytics Layer
 **Impact Dashboard & KPI Reports**
@@ -102,13 +93,6 @@ Senken+1 is a comprehensive carbon credit marketplace platform that leverages bl
 - **Redis**: Caching and session management
 - **GraphQL**: API query language and runtime
 
-### Blockchain & Web3
-- **Solidity**: Smart contract development
-- **Hardhat**: Ethereum development environment
-- **IPFS**: Decentralized file storage
-- **Web3.js**: Ethereum JavaScript API
-- **The Graph**: Decentralized indexing protocol
-
 ### AI & Machine Learning
 - **Python**: Primary ML development language
 - **TensorFlow/PyTorch**: Deep learning frameworks
@@ -128,7 +112,7 @@ Senken+1 is a comprehensive carbon credit marketplace platform that leverages bl
 ### Security Measures
 - **Multi-factor Authentication**: Enhanced user security
 - **End-to-end Encryption**: Data protection in transit and at rest
-- **Smart Contract Audits**: Third-party security verification
+- **API Security Audits**: Third-party security verification
 - **Penetration Testing**: Regular security assessments
 - **Bug Bounty Program**: Community-driven security testing
 
@@ -146,7 +130,7 @@ Senken+1 is a comprehensive carbon credit marketplace platform that leverages bl
 - **Weather Data**: Meteorological services integration
 - **Financial Data**: Market data providers and exchanges
 - **Verification Services**: Third-party certification bodies
-- **Payment Gateways**: Stripe, PayPal, crypto payment processors
+- **Payment Gateways**: Stripe, PayPal
 
 ### Partner Ecosystem
 - **Project Developers**: Environmental project creators

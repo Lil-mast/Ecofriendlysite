@@ -1,4 +1,4 @@
-// eco hub model for MongoDB, designed to capture comprehensive information about various types of eco-friendly hubs, including their location, services, operating hours, ratings, reviews, verification status, and engagement metrics. This model supports advanced analytics and integration with the Senken API for promoting sustainable practices and connecting users with local eco-friendly resources.
+// eco hub model for MongoDB, designed to capture comprehensive information about various types of eco-friendly hubs, including their location, services, operating hours, ratings, reviews, verification status, and engagement metrics. This model supports advanced analytics and integration with the EcoNexus API for promoting sustainable practices and connecting users with local eco-friendly resources.
 const mongoose = require('mongoose');
 
 const ecoHubSchema = new mongoose.Schema({

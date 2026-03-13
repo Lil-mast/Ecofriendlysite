@@ -1,4 +1,4 @@
-// .env configuration and environment variables for Senken API
+// .env configuration and environment variables for EcoNexus API
 require('dotenv').config();
 
 module.exports = {
@@ -12,10 +12,10 @@ module.exports = {
   BCRYPT_ROUNDS: parseInt(process.env.BCRYPT_ROUNDS) || 12,
   
   // Database
-  MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/senken_carbon',
+  MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/econexus_carbon',
   PG_HOST: process.env.PG_HOST || 'localhost',
   PG_PORT: process.env.PG_PORT || 5432,
-  PG_DATABASE: process.env.PG_DATABASE || 'senken_commerce',
+  PG_DATABASE: process.env.PG_DATABASE || 'econexus_commerce',
   PG_USER: process.env.PG_USER || 'postgres',
   PG_PASSWORD: process.env.PG_PASSWORD || 'password',
   REDIS_HOST: process.env.REDIS_HOST || 'localhost',

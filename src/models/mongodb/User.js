@@ -1,4 +1,4 @@
-// user model for MongoDB with comprehensive fields for both individual and organizational users, including geospatial data, carbon profile, sustainability goals, and preferences. This model supports authentication, role-based access control, and advanced querying capabilities for the Senken API.
+// user model for MongoDB with comprehensive fields for both individual and organizational users, including geospatial data, carbon profile, sustainability goals, and preferences. This model supports authentication, role-based access control, and advanced querying capabilities for the EcoNexus API.
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 

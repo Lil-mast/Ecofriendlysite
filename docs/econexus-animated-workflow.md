@@ -1,4 +1,4 @@
-# Senken+1 Animated Workflow
+# EcoNexus Animated Workflow
 
 ```mermaid
 graph TD

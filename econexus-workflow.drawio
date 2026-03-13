@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net" modified="2024-02-20T00:22:00.000Z" agent="5.0" etag="senken-workflow" version="22.1.16" type="device">
-  <diagram name="Senken+1 Workflow" id="senken-workflow">
+<mxfile host="app.diagrams.net" modified="2024-02-20T00:22:00.000Z" agent="5.0" etag="econexus-workflow" version="22.1.16" type="device">
+  <diagram name="EcoNexus Workflow" id="econexus-workflow">
     <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
@@ -194,7 +194,7 @@
         </mxCell>
         
         <!-- Title -->
-        <mxCell id="title" value="Senken+1 Dynamic Workflow - Real-time Data Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="title" value="EcoNexus Dynamic Workflow - Real-time Data Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="300" y="380" width="800" height="40" as="geometry" />
         </mxCell>
         

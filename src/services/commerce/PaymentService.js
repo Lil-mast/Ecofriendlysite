@@ -1,4 +1,4 @@
-// payment service for Senken API - handles payment processing, order management, and integration with Stripe for carbon credit purchases
+// payment service for EcoNexus API - handles payment processing, order management, and integration with Stripe for carbon credit purchases
 const stripe = require('stripe')(require('../../config/environment').STRIPE_SECRET_KEY);
 const { pgPool } = require('../../config/database');
 const { CarbonCredit } = require('../../models/mongodb');

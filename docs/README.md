@@ -1,4 +1,4 @@
-# EcoFriendlySite
+# EcoNexus
 
 An innovative platform dedicated to promoting sustainability through carbon footprint tracking and eco-friendly practices.
 

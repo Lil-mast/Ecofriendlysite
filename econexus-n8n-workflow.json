@@ -1,5 +1,5 @@
 {
-  "name": "Senken+1 Carbon Credit Marketplace Workflow",
+  "name": "EcoNexus Carbon Credit Marketplace Workflow",
   "nodes": [
     {
       "parameters": {
@@ -25,14 +25,14 @@
     },
     {
       "parameters": {
-        "jsCode": "// Commerce Layer - Product Marketplace\nconst commerceData = {\n  ...$input.first().json,\n  commerce: {\n    marketplace: {\n      products: ['carbon-credits', 'esg-investments', 'green-projects'],\n      paymentMethods: ['stripe', 'crypto', 'bank-transfer'],\n      features: ['shopping-cart', 'wishlist', 'order-tracking'],\n      pricing: {\n        model: 'dynamic-pricing',\n        factors: ['market-demand', 'verification-status', 'project-quality']\n      }\n    }\n  }\n};\n\nreturn [{ json: commerceData }];"
+        "jsCode": "// Commerce Layer - Product Marketplace\nconst commerceData = {\n  ...$input.first().json,\n  commerce: {\n    marketplace: {\n      products: ['carbon-credits', 'esg-investments', 'green-projects'],\n      paymentMethods: ['stripe'],\n      features: ['shopping-cart', 'wishlist', 'order-tracking'],\n      pricing: {\n        model: 'dynamic-pricing',\n        factors: ['market-demand', 'verification-status', 'project-quality']\n      }\n    }\n  }\n};\n\nreturn [{ json: commerceData }];"
       },
       "name": "🛍️ Commerce Layer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [680, 300],
       "id": "commerce-layer",
-      "notes": "Product marketplace with payment gateway integration, shopping cart, and order management."
+      "notes": "Product marketplace with Stripe payment integration, shopping cart, and order management."
     },
     {
       "parameters": {
@@ -58,14 +58,14 @@
     },
     {
       "parameters": {
-        "jsCode": "// Carbon Layer - Project Registry\nconst carbonData = {\n  ...$input.first().json,\n  carbon: {\n    registry: {\n      projects: 'verified-environmental-projects',\n      credits: 'blockchain-based-tokens',\n      minting: 'automated-credit-creation',\n      retirement: 'permanent-credit-removal',\n      standards: ['vera', 'gold-standard', 'gcc']\n    },\n    smartContracts: {\n      issuance: 'ERC-721-compliant',\n      trading: 'ERC-1155-compliant',\n      governance: 'community-voting'\n    }\n  }\n};\n\nreturn [{ json: carbonData }];"
+        "jsCode": "// Carbon Layer - Project Registry\nconst carbonData = {\n  ...$input.first().json,\n  carbon: {\n    registry: {\n      projects: 'verified-environmental-projects',\n      credits: 'database-stored-credits',\n      minting: 'automated-credit-creation',\n      retirement: 'permanent-credit-removal',\n      standards: ['vera', 'gold-standard', 'gcc']\n    },\n    management: {\n      issuance: 'api-based-creation',\n      trading: 'marketplace-integration',\n      governance: 'admin-controlled'\n    }\n  }\n};\n\nreturn [{ json: carbonData }];"
       },
       "name": "🌱 Carbon Layer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [1340, 300],
       "id": "carbon-layer",
-      "notes": "Project registry with credit minting, smart contracts, and retirement system."
+      "notes": "Project registry with credit creation, database storage, and retirement system."
     },
     {
       "parameters": {
@@ -80,7 +80,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Marketplace Layer - Credit Trading\nconst marketplaceData = {\n  ...$input.first().json,\n  marketplace: {\n    trading: {\n      engine: 'real-time-order-matching',\n      auctions: ['dutch-auction', 'sealed-bid'],\n      liquidity: 'automated-market-making',\n      algorithms: 'smart-order-routing'\n    },\n    features: {\n      orderBook: 'live-bid-ask-display',\n      priceDiscovery: 'market-based-pricing',\n      settlement: 'instant-trade-execution'\n    }\n  }\n};\n\nreturn [{ json: marketplaceData }];"
+        "jsCode": "// Marketplace Layer - Credit Trading\nconst marketplaceData = {\n  ...$input.first().json,\n  marketplace: {\n    trading: {\n      engine: 'real-time-order-matching',\n      auctions: ['dutch-auction', 'sealed-bid'],\n      liquidity: 'automated-market-making',\n      algorithms: 'automated-order-routing'\n    },\n    features: {\n      orderBook: 'live-bid-ask-display',\n      priceDiscovery: 'market-based-pricing',\n      settlement: 'instant-trade-execution'\n    }\n  }\n};\n\nreturn [{ json: marketplaceData }];"
       },
       "name": "💹 Marketplace Layer",
       "type": "n8n-nodes-base.code",
@@ -91,14 +91,14 @@
     },
     {
       "parameters": {
-        "jsCode": "// Finance Layer - Escrow & Payments\nconst financeData = {\n  ...$input.first().json,\n  finance: {\n    payments: {\n      escrow: 'secure-fund-holding',\n      methods: ['stripe', 'paypal', 'crypto-wallets'],\n      wallets: ['metamask', 'walletconnect', 'custodial'],\n      settlement: 'automated-payment-processing'\n    },\n    compliance: {\n      kyc: 'identity-verification',\n      aml: 'anti-money-laundering',\n      regulations: 'financial-authority-compliance'\n    }\n  }\n};\n\nreturn [{ json: financeData }];"
+        "jsCode": "// Finance Layer - Escrow & Payments\nconst financeData = {\n  ...$input.first().json,\n  finance: {\n    payments: {\n      escrow: 'secure-fund-holding',\n      methods: ['stripe'],\n      settlement: 'automated-payment-processing'\n    },\n    compliance: {\n      kyc: 'identity-verification',\n      aml: 'anti-money-laundering',\n      regulations: 'financial-authority-compliance'\n    }\n  }\n};\n\nreturn [{ json: financeData }];"
       },
       "name": "💰 Finance Layer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [900, 500],
       "id": "finance-layer",
-      "notes": "Escrow services with multi-currency payment processing and regulatory compliance."
+      "notes": "Escrow services with Stripe payment processing and regulatory compliance."
     },
     {
       "parameters": {
@@ -253,9 +253,9 @@
   "versionId": "1.0.0",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "senken-marketplace-v1"
+    "instanceId": "econexus-marketplace-v1"
   },
-  "id": "senken-plus1-workflow",
+  "id": "econexus-workflow",
   "tags": [
     {
       "createdAt": "2024-02-20T00:00:00.000Z",

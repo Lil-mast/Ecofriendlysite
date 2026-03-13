@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net" modified="2024-02-20T00:22:00.000Z" agent="5.0" etag="senken-architecture" version="22.1.16" type="device">
-  <diagram name="Senken+1 Architecture" id="senken-architecture">
+<mxfile host="app.diagrams.net" modified="2024-02-20T00:22:00.000Z" agent="5.0" etag="econexus-architecture" version="22.1.16" type="device">
+  <diagram name="EcoNexus Architecture" id="econexus-architecture">
     <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
@@ -132,7 +132,7 @@
         </mxCell>
         
         <!-- Title -->
-        <mxCell id="title" value="Senken+1 Carbon Credit Marketplace - System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="title" value="EcoNexus Carbon Credit Marketplace - System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="280" y="280" width="640" height="40" as="geometry" />
         </mxCell>
         

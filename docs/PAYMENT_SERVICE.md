@@ -371,7 +371,7 @@ app.get('/api/orders/:buyerId', async (req, res) => {
 1. **Sustainable Funding**: Revenue from credit sales supports conservation work
 2. **Global Reach**: Connect with environmentally conscious buyers worldwide
 3. **Fair Pricing**: Direct marketplace reduces middlemen, more funds reach projects
-4. **Impact Verification**: Blockchain and certified standards ensure credibility
+4. **Impact Verification**: Database-backed records and certified standards ensure credibility
 
 ### For the Planet
 
@@ -390,12 +390,12 @@ STRIPE_SECRET_KEY=sk_live_xxxxxxxxxxxxx
 STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxxx
 
 # MongoDB
-MONGODB_URI=mongodb://localhost:27017/senken_carbon
+MONGODB_URI=mongodb://localhost:27017/econexus_carbon
 
 # PostgreSQL
 PG_HOST=localhost
 PG_PORT=5432
-PG_DATABASE=senken_commerce
+PG_DATABASE=econexus_commerce
 PG_USER=postgres
 PG_PASSWORD=password
 
@@ -426,7 +426,7 @@ stripe trigger payment_intent.succeeded
 
 1. **Recurring Credits**: Auto-offset subscriptions
 2. **Carbon Futures**: Pre-purchase credits for future offset
-3. **Blockchain Integration**: Immutable transaction records
+3. **Enhanced Security**: Advanced encryption and audit trails
 4. **Mobile App**: iOS/Android for on-the-go purchasing
 5. **API for Businesses**: Bulk purchasing and corporate offsetting
 6. **Secondary Market**: Peer-to-peer credit trading

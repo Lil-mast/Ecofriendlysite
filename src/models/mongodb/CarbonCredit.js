@@ -1,4 +1,4 @@
-// carbon credit model for MongoDB, designed to capture comprehensive information about carbon credits, including project details, quantification, verification, monitoring, pricing, marketplace status, transaction history, and retirement tracking. This model supports advanced analytics and integration with the Senken API for carbon credit management and trading.
+// carbon credit model for MongoDB, designed to capture comprehensive information about carbon credits, including project details, quantification, verification, monitoring, pricing, marketplace status, transaction history, and retirement tracking. This model supports advanced analytics and integration with the EcoNexus API for carbon credit management and trading.
 
 const mongoose = require('mongoose');
 

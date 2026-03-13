@@ -6,7 +6,7 @@ const Redis = require('ioredis');
 // MongoDB Connection (Primary - Carbon/Analytics Data)
 const connectMongoDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/senken_carbon', {
+    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/econexus_carbon', {
       maxPoolSize: 10,
       serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,
@@ -23,7 +23,7 @@ const connectMongoDB = async () => {
 const pgPool = new Pool({
   host: process.env.PG_HOST || 'localhost',
   port: process.env.PG_PORT || 5432,
-  database: process.env.PG_DATABASE || 'senken_commerce',
+  database: process.env.PG_DATABASE || 'econexus_commerce',
   user: process.env.PG_USER || 'postgres',
   password: process.env.PG_PASSWORD || 'password',
   max: 20,

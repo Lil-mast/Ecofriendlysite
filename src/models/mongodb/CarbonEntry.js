@@ -1,4 +1,4 @@
-// carbon footprint entry model for MongoDB, designed to capture detailed information about individual carbon emissions activities, including geospatial data, activity details, emission calculations, data quality, and source tracking. This model supports advanced analytics and integration with the Senken API for carbon management and reporting.
+// carbon footprint entry model for MongoDB, designed to capture detailed information about individual carbon emissions activities, including geospatial data, activity details, emission calculations, data quality, and source tracking. This model supports advanced analytics and integration with the EcoNexus API for carbon management and reporting.
 const mongoose = require('mongoose');
 
 const carbonEntrySchema = new mongoose.Schema({
