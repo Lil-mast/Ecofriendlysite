@@ -1,5 +1,5 @@
 // eco hub model for MongoDB, designed to capture comprehensive information about various types of eco-friendly hubs, including their location, services, operating hours, ratings, reviews, verification status, and engagement metrics. This model supports advanced analytics and integration with the EcoNexus API for promoting sustainable practices and connecting users with local eco-friendly resources.
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const ecoHubSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -137,4 +137,4 @@ ecoHubSchema.index({ location: '2dsphere' });
 ecoHubSchema.index({ type: 1, verified: 1 });
 ecoHubSchema.index({ tags: 1 });
 
-module.exports = mongoose.model('EcoHub', ecoHubSchema);
+export default mongoose.model('EcoHub', ecoHubSchema);

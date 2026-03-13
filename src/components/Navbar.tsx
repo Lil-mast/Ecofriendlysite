@@ -1,11 +1,23 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTheme } from 'next-themes'
-import { Sun, Moon, Leaf, ShoppingCart, Calculator, User } from 'lucide-react'
+import { Sun, Moon, Leaf, ShoppingCart, Calculator, User, LogOut } from 'lucide-react'
 
 const Navbar = () => {
   const location = useLocation()
+  const navigate = useNavigate()
   const { theme, setTheme } = useTheme()
+  const [isAuth, setIsAuth] = useState(false)
+
+  useEffect(() => {
+    setIsAuth(!!localStorage.getItem('token'))
+  }, [location.pathname])
+
+  const handleSignOut = () => {
+    localStorage.removeItem('token')
+    setIsAuth(false)
+    navigate('/')
+  }
 
   const navItems = [
     { path: '/', label: 'Dashboard', icon: Leaf },
@@ -13,6 +25,7 @@ const Navbar = () => {
     { path: '/calculator', label: 'Calculator', icon: Calculator },
     { path: '/profile', label: 'Profile', icon: User },
   ]
+
 
   return (
     <nav className="bg-white dark:bg-gray-900 shadow-lg border-b border-gray-200 dark:border-gray-700">
@@ -38,6 +51,17 @@ const Navbar = () => {
                 <span>{label}</span>
               </Link>
             ))}
+            {!isAuth ? (
+              <>
+                <Link to="/login" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400">Sign in</Link>
+                <Link to="/register" className="btn-primary text-sm py-1.5 px-3">Register</Link>
+              </>
+            ) : (
+              <button type="button" onClick={handleSignOut} className="flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400" aria-label="Sign out">
+                <LogOut className="h-4 w-4" />
+                <span>Sign out</span>
+              </button>
+            )}
 
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}

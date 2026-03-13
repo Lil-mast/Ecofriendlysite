@@ -1,6 +1,5 @@
 // carbon credit model for MongoDB, designed to capture comprehensive information about carbon credits, including project details, quantification, verification, monitoring, pricing, marketplace status, transaction history, and retirement tracking. This model supports advanced analytics and integration with the EcoNexus API for carbon credit management and trading.
-
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const carbonCreditSchema = new mongoose.Schema({
   // Credit Identification
@@ -212,4 +211,4 @@ carbonCreditSchema.methods.calculatePrice = function(quantity) {
   return price;
 };
 
-module.exports = mongoose.model('CarbonCredit', carbonCreditSchema);
+export default mongoose.model('CarbonCredit', carbonCreditSchema);

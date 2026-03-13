@@ -1,7 +1,7 @@
 // advanced machine learning prediction service for carbon emissions forecasting, anomaly detection, and project evaluation
-const axios = require('axios');
-const { CarbonEntry } = require('../../models/mongodb');
-const config = require('../../config/environment');
+import axios from 'axios';
+import { CarbonEntry, User } from '../../models/mongodb/index.js';
+import config from '../../config/environment.js';
 
 class MLPredictionService {
   constructor() {
@@ -255,7 +255,6 @@ class MLPredictionService {
   }
 
   async getUserProfile(userId) {
-    const { User } = require('../../models/mongodb');
     const user = await User.findById(userId).lean();
     return {
       role: user.role,
@@ -275,4 +274,4 @@ class MLPredictionService {
   }
 }
 
-module.exports = new MLPredictionService();
+export default new MLPredictionService();

@@ -1,8 +1,7 @@
 // AuctionService.js - Handles auction creation, bidding, and finalization logic
-
-const { pgPool } = require('../../config/database');
-const { CarbonCredit } = require('../../models/mongodb');
-const EventEmitter = require('events');
+import { pgPool } from '../../config/database.js';
+import { CarbonCredit } from '../../models/mongodb/index.js';
+import EventEmitter from 'events';
 
 class AuctionService extends EventEmitter {
   constructor() {
@@ -301,4 +300,4 @@ class AuctionService extends EventEmitter {
   }
 }
 
-module.exports = new AuctionService();
+export default new AuctionService();

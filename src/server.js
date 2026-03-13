@@ -1,8 +1,8 @@
 // File: src/server.js
-const http = require('http');
-const { app, initialize } = require('./app');
-const config = require('./config/environment');
-const { setupWebSocket } = require('./websocket');
+import http from 'http';
+import { app, initialize } from './app.js';
+import config from './config/environment.js';
+import { setupWebSocket } from './websocket.js';
 
 const PORT = config.PORT;
 

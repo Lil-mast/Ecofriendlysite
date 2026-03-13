@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { TrendingUp, Leaf, DollarSign, Users, Activity, Target } from 'lucide-react'
 
 const Dashboard = () => {
@@ -98,22 +99,22 @@ const Dashboard = () => {
         <div className="card">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Actions</h3>
           <div className="grid grid-cols-2 gap-4">
-            <button className="btn-primary flex items-center justify-center space-x-2 py-3">
+            <Link to="/calculator" className="btn-primary flex items-center justify-center space-x-2 py-3">
               <Activity className="h-4 w-4" />
               <span>Calculate Footprint</span>
-            </button>
-            <button className="btn-secondary flex items-center justify-center space-x-2 py-3">
+            </Link>
+            <Link to="/marketplace" className="btn-secondary flex items-center justify-center space-x-2 py-3">
               <TrendingUp className="h-4 w-4" />
               <span>View Marketplace</span>
-            </button>
-            <button className="btn-secondary flex items-center justify-center space-x-2 py-3">
+            </Link>
+            <Link to="/profile" className="btn-secondary flex items-center justify-center space-x-2 py-3">
               <Target className="h-4 w-4" />
               <span>Set Goals</span>
-            </button>
-            <button className="btn-secondary flex items-center justify-center space-x-2 py-3">
+            </Link>
+            <Link to="/marketplace" className="btn-secondary flex items-center justify-center space-x-2 py-3">
               <Users className="h-4 w-4" />
               <span>Join Community</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

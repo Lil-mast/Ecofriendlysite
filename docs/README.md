@@ -61,68 +61,107 @@ The EcoFriendlySite is designed to help individuals and organizations monitor an
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the repository**
    ```bash
    git clone https://github.com/yourusername/ecofriendlysite.git
-   ```
-
-2. Navigate to the project directory:
-   ```bash
    cd ecofriendlysite
    ```
 
-3. Install pnpm (if not already installed):
+2. **Install pnpm** (if not already installed)
    ```bash
    corepack enable
    corepack prepare pnpm@latest --activate
    ```
 
-4. Install dependencies:
+3. **Install dependencies**
    ```bash
    pnpm install
    ```
 
-5. Set up environment variables:
-   - Copy `.env.example` to `.env` and fill in the required values:
-     - `STRIPE_SECRET_KEY` - Stripe API secret key
-     - `STRIPE_WEBHOOK_SECRET` - Stripe webhook secret
-     - `MONGODB_URI` - MongoDB connection string
-     - `PG_HOST`, `PG_PORT`, `PG_DATABASE`, `PG_USER`, `PG_PASSWORD` - PostgreSQL credentials
-     - API keys for: `ELECTRICITYMAP_API_KEY`, `HERE_API_KEY`, `ORS_API_KEY`, `OPENWEATHER_API_KEY`
+4. **Configure environment**  
+   Copy `.env.example` to `.env` and set the variables below (cloud services or local).
 
-6. Start the development server:
-   ```bash
-   pnpm dev
-   ```
+5. **Run the app** (see [How to run](#how-to-run) below).
+
+## How to run
+
+This project uses **pnpm** as the package manager. All commands assume you are in the project root.
+
+| Command | Description |
+|--------|-------------|
+| `pnpm dev` | Start the **frontend** only (Vite dev server on http://localhost:3000) |
+| `pnpm run dev:server` | Start the **API server** only (Express on http://localhost:3001) |
+| `pnpm run dev:all` | Start **both** frontend and API server (concurrently) |
+| `pnpm run server` or `pnpm start` | Start only the API server (e.g. for production) |
+| `pnpm build` | Build the frontend for production (`dist/`) |
+| `pnpm preview` | Preview the production frontend build locally |
+| `pnpm lint` | Run ESLint |
+
+**Recommended for local development:** run both frontend and API so the app works end-to-end:
+
+```bash
+pnpm run dev:all
+```
+
+- Frontend: http://localhost:3000 (Vite proxies `/api` to the backend)
+- API: http://localhost:3001/api/v1
+
+If you run only `pnpm dev`, the UI will load but API calls will fail unless the backend is running separately.
 
 ## Available Scripts
 
-- `pnpm dev` - Start the development server (frontend)
-- `pnpm build` - Build the project for production
-- `pnpm preview` - Preview the production build locally
-- `pnpm lint` - Run ESLint for code quality checks
+- `pnpm dev` – Frontend development server (Vite, port 3000)
+- `pnpm run dev:server` – Backend API server (Express, port 3001)
+- `pnpm run dev:all` – Frontend + backend together
+- `pnpm run server` / `pnpm start` – API server only
+- `pnpm build` – Build frontend for production
+- `pnpm preview` – Preview production build
+- `pnpm lint` – ESLint
 
-## Backend Setup
+## Backend & database setup
 
-The backend is built with Node.js, Express, and uses both MongoDB and PostgreSQL databases.
+The backend uses three data stores. Configure them in `.env` as follows.
 
-### Database Setup
+### 1. MongoDB Atlas (replaces local MongoDB)
 
-1. **MongoDB**: Used for flexible document storage (carbon entries, user profiles, etc.)
-2. **PostgreSQL**: Used for structured data (orders, transactions, etc.)
+- Create a cluster at [MongoDB Atlas](https://cloud.mongodb.com).
+- Get the connection string: **Connect → Drivers → Node.js**.
+- Set in `.env`:
+  ```env
+  MONGODB_URI=mongodb+srv://<user>:<password>@<cluster>.mongodb.net/econexus_carbon?retryWrites=true&w=majority
+  ```
 
-Make sure both databases are running and properly configured in your `.env` file.
+### 2. Supabase Postgres (replaces local PostgreSQL)
 
-### Starting the Backend
+- Create a project at [Supabase](https://supabase.com).
+- In **Project Settings → Database**, copy the **Connection string (URI)** (use the **Connection pooling** string, port **6543**, for the backend).
+- Set in `.env`:
+  ```env
+  DATABASE_URL=postgresql://postgres.[project-ref]:[password]@aws-0-[region].pooler.supabase.com:6543/postgres
+  ```
+- Run the schema once (Supabase **SQL Editor**): paste and run the contents of `src/models/postgres/schema.sql`.
 
-The backend server runs alongside the frontend. The API endpoints are available at `http://localhost:3001` (configured in the backend code).
+### 3. Redis – Upstash or other public cache (replaces local Redis)
 
-## Development Workflow
+- Create a Redis database at [Upstash](https://console.upstash.com).
+- In the Upstash dashboard, get the **ioredis** URL (TLS).
+- Set in `.env`:
+  ```env
+  REDIS_URL=rediss://default:<password>@<endpoint>.upstash.io:6379
+  ```
+- If you prefer local Redis, use `REDIS_HOST` and `REDIS_PORT` instead of `REDIS_URL`.
 
-1. **Frontend Development**: Run `pnpm dev` for hot-reloaded React development
-2. **Backend Development**: The backend runs automatically with the frontend in development mode
-3. **Database**: Ensure MongoDB and PostgreSQL are running locally or use cloud instances
-4. **Environment**: Copy `.env.example` to `.env` and configure all required variables
+### Other env vars
+
+- **Stripe**: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PUBLISHABLE_KEY`
+- **JWT**: `JWT_SECRET` (min 32 characters)
+- **APIs** (optional): `ELECTRICITYMAP_API_KEY`, `HERE_API_KEY`, `ORS_API_KEY`, `OPENWEATHER_API_KEY`
+
+## Development workflow
+
+1. Copy `.env.example` to `.env` and set MongoDB Atlas, Supabase `DATABASE_URL`, and Redis `REDIS_URL` (or local equivalents).
+2. Run `pnpm run dev:all` to start frontend and API.
+3. Open http://localhost:3000; the frontend will proxy `/api` to the backend on port 3001.
 
 ## Deployment
 

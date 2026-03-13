@@ -1,7 +1,7 @@
--- PostgreSQL Schema for Commerce & Finance Layer
+-- PostgreSQL Schema for Commerce & Finance Layer (Supabase-compatible; idempotent with IF NOT EXISTS)
 
 -- Users table (synced with MongoDB via event streaming)
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     mongo_id VARCHAR(24) UNIQUE NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE users (
 );
 
 -- Products/Carbon Credits Catalog
-CREATE TABLE products (
+CREATE TABLE IF NOT EXISTS products (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     mongo_credit_id VARCHAR(24) UNIQUE,
     serial_number VARCHAR(100) UNIQUE NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE products (
 );
 
 -- Orders
-CREATE TABLE orders (
+CREATE TABLE IF NOT EXISTS orders (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     order_number VARCHAR(50) UNIQUE NOT NULL,
     buyer_id UUID REFERENCES users(id),
@@ -51,7 +51,7 @@ CREATE TABLE orders (
 );
 
 -- Order Items
-CREATE TABLE order_items (
+CREATE TABLE IF NOT EXISTS order_items (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     order_id UUID REFERENCES orders(id) ON DELETE CASCADE,
     product_id UUID REFERENCES products(id),
@@ -64,7 +64,7 @@ CREATE TABLE order_items (
 );
 
 -- Transactions/Ledger
-CREATE TABLE transactions (
+CREATE TABLE IF NOT EXISTS transactions (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     transaction_type VARCHAR(50) NOT NULL, -- purchase, sale, transfer, retirement, fee, refund
     order_id UUID REFERENCES orders(id),
@@ -79,7 +79,7 @@ CREATE TABLE transactions (
 );
 
 -- Escrow
-CREATE TABLE escrow (
+CREATE TABLE IF NOT EXISTS escrow (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     order_id UUID REFERENCES orders(id),
     amount DECIMAL(15, 2) NOT NULL,
@@ -92,7 +92,7 @@ CREATE TABLE escrow (
 );
 
 -- Auctions
-CREATE TABLE auctions (
+CREATE TABLE IF NOT EXISTS auctions (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     product_id UUID REFERENCES products(id),
     seller_id UUID REFERENCES users(id),
@@ -111,7 +111,7 @@ CREATE TABLE auctions (
 );
 
 -- Bids
-CREATE TABLE bids (
+CREATE TABLE IF NOT EXISTS bids (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     auction_id UUID REFERENCES auctions(id),
     bidder_id UUID REFERENCES users(id),
@@ -123,7 +123,7 @@ CREATE TABLE bids (
 );
 
 -- Subscriptions
-CREATE TABLE subscriptions (
+CREATE TABLE IF NOT EXISTS subscriptions (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id UUID REFERENCES users(id),
     plan_type VARCHAR(50) NOT NULL, -- individual_free, individual_pro, organization_basic, organization_enterprise
@@ -136,7 +136,7 @@ CREATE TABLE subscriptions (
 );
 
 -- Invoices
-CREATE TABLE invoices (
+CREATE TABLE IF NOT EXISTS invoices (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     subscription_id UUID REFERENCES subscriptions(id),
     user_id UUID REFERENCES users(id),
@@ -152,12 +152,12 @@ CREATE TABLE invoices (
 );
 
 -- Indexes
-CREATE INDEX idx_orders_buyer ON orders(buyer_id);
-CREATE INDEX idx_orders_status ON orders(status);
-CREATE INDEX idx_transactions_from ON transactions(from_user_id);
-CREATE INDEX idx_transactions_to ON transactions(to_user_id);
-CREATE INDEX idx_auctions_status ON auctions(status, end_time);
-CREATE INDEX idx_bids_auction ON bids(auction_id, amount DESC);
+CREATE INDEX IF NOT EXISTS idx_orders_buyer ON orders(buyer_id);
+CREATE INDEX IF NOT EXISTS idx_orders_status ON orders(status);
+CREATE INDEX IF NOT EXISTS idx_transactions_from ON transactions(from_user_id);
+CREATE INDEX IF NOT EXISTS idx_transactions_to ON transactions(to_user_id);
+CREATE INDEX IF NOT EXISTS idx_auctions_status ON auctions(status, end_time);
+CREATE INDEX IF NOT EXISTS idx_bids_auction ON bids(auction_id, amount DESC);
 
 -- Triggers for updated_at
 CREATE OR REPLACE FUNCTION update_updated_at_column()
@@ -168,6 +168,9 @@ BEGIN
 END;
 $$ language 'plpgsql';
 
+DROP TRIGGER IF EXISTS update_users_updated_at ON users;
 CREATE TRIGGER update_users_updated_at BEFORE UPDATE ON users FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+DROP TRIGGER IF EXISTS update_products_updated_at ON products;
 CREATE TRIGGER update_products_updated_at BEFORE UPDATE ON products FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+DROP TRIGGER IF EXISTS update_orders_updated_at ON orders;
 CREATE TRIGGER update_orders_updated_at BEFORE UPDATE ON orders FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();

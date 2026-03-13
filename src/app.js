@@ -1,19 +1,22 @@
 // Main application file for the EcoFriendly API, setting up Express server, middleware, routes, and initializing database connections and background jobs.
-const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
-const morgan = require('morgan');
-const compression = require('compression');
-const rateLimit = require('express-rate-limit');
-const { createClient } = require('redis');
-const RedisStore = require('rate-limit-redis');
+import express from 'express';
+import helmet from 'helmet';
+import cors from 'cors';
+import morgan from 'morgan';
+import compression from 'compression';
+import rateLimit from 'express-rate-limit';
+import RedisStore from 'rate-limit-redis';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const config = require('./config/environment');
-const { connectMongoDB, redisClient } = require('./config/database');
-const routes = require('./routes');
-const errorHandler = require('./middleware/errorHandler');
-const { setupWebSocket } = require('./websocket');
-const { setupJobs } = require('./jobs');
+import config from './config/environment.js';
+import { connectMongoDB, redisClient, pgPool } from './config/database.js';
+import routes from './routes/index.js';
+import errorHandler from './middleware/errorHandler.js';
+import { setupJobs } from './jobs/index.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
@@ -81,10 +84,6 @@ async function initialize() {
 }
 
 async function setupPostgresTables() {
-  const { pgPool } = require('./config/database');
-  const fs = require('fs');
-  const path = require('path');
-  
   const schemaSQL = fs.readFileSync(
     path.join(__dirname, 'models/postgres/schema.sql'),
     'utf8'
@@ -98,12 +97,11 @@ async function setupPostgresTables() {
   }
 }
 
-// Graceful shutdown haha
+// Graceful shutdown
 process.on('SIGTERM', async () => {
   console.log('SIGTERM received, shutting down gracefully');
-  const { pgPool } = require('./config/database');
   await pgPool.end();
   process.exit(0);
 });
 
-module.exports = { app, initialize };
+export { app, initialize };

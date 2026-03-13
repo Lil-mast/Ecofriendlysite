@@ -1,7 +1,7 @@
 // File: src/controllers/GeospatialController.js
-const SpatialAnalysis = require('../services/geospatial/SpatialAnalysis');
-const CarbonCalculator = require('../services/geospatial/CarbonCalculator');
-const { EcoHub } = require('../models/mongodb');
+import SpatialAnalysis from '../services/geospatial/SpatialAnalysis.js';
+import CarbonCalculator from '../services/geospatial/CarbonCalculator.js';
+import { EcoHub } from '../models/mongodb/index.js';
 
 class GeospatialController {
   // Find nearby eco-friendly locations
@@ -310,4 +310,4 @@ class GeospatialController {
   }
 }
 
-module.exports = new GeospatialController();
+export default new GeospatialController();

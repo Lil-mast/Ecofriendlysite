@@ -1,30 +1,28 @@
 // websocket server setup for real-time updates and live tracking
-const WebSocket = require('ws');
-const jwt = require('jsonwebtoken');
-const config = require('./config/environment');
-const CarbonCalculator = require('./services/geospatial/CarbonCalculator');
-const AuctionService = require('./services/commerce/AuctionService');
+import WebSocket from 'ws';
+import jwt from 'jsonwebtoken';
+import config from './config/environment.js';
+import CarbonCalculator from './services/geospatial/CarbonCalculator.js';
+import AuctionService from './services/commerce/AuctionService.js';
 
-function setupWebSocket(server) {
+export function setupWebSocket(server) {
   const wss = new WebSocket.Server({ server, path: '/ws' });
-  
-  // Connection authentication
+
   wss.on('connection', async (ws, req) => {
     try {
-      // Extract token from query
       const url = new URL(req.url, `http://${req.headers.host}`);
       const token = url.searchParams.get('token');
-      
+
       if (!token) {
         ws.close(1008, 'Authentication required');
         return;
       }
-      
+
       const decoded = jwt.verify(token, config.JWT_SECRET);
       ws.userId = decoded.userId;
-      
+
       console.log(`WebSocket connected: ${decoded.userId}`);
-      
+
       ws.on('message', async (message) => {
         try {
           const data = JSON.parse(message);
@@ -33,20 +31,17 @@ function setupWebSocket(server) {
           ws.send(JSON.stringify({ error: error.message }));
         }
       });
-      
+
       ws.on('close', () => {
         console.log(`WebSocket disconnected: ${ws.userId}`);
       });
-      
-      // Send initial connection success
+
       ws.send(JSON.stringify({ type: 'connected', userId: ws.userId }));
-      
     } catch (error) {
       ws.close(1008, 'Invalid token');
     }
   });
-  
-  // Subscribe auction service to WebSocket broadcasts
+
   AuctionService.on('bid_placed', (data) => {
     broadcast(wss, {
       type: 'auction_update',
@@ -55,7 +50,7 @@ function setupWebSocket(server) {
       bidder: data.bidderId
     });
   });
-  
+
   AuctionService.on('auction_ended', (data) => {
     broadcast(wss, {
       type: 'auction_ended',
@@ -70,16 +65,16 @@ async function handleMessage(ws, data) {
     case 'live_tracking':
       await handleLiveTracking(ws, data);
       break;
-      
+
     case 'subscribe_auction':
       ws.auctionId = data.auctionId;
       ws.send(JSON.stringify({ type: 'subscribed', auctionId: data.auctionId }));
       break;
-      
+
     case 'ping':
       ws.send(JSON.stringify({ type: 'pong', timestamp: Date.now() }));
       break;
-      
+
     default:
       ws.send(JSON.stringify({ error: 'Unknown message type' }));
   }
@@ -87,21 +82,20 @@ async function handleMessage(ws, data) {
 
 async function handleLiveTracking(ws, data) {
   const { points } = data;
-  
+
   if (points.length < 2) return;
-  
-  // Calculate distance and emissions in real-time
+
   const distance = CarbonCalculator.calculatePathDistance(
     points.map(p => ({ lng: p.lng, lat: p.lat }))
   );
-  
+
   const mode = await CarbonCalculator.detectTransportMode(points);
   const emissions = await CarbonCalculator.calculateTransportEmissions({
     mode,
     distance,
     passengers: 1
   });
-  
+
   ws.send(JSON.stringify({
     type: 'tracking_update',
     distance: Math.round(distance * 100) / 100,
@@ -117,7 +111,6 @@ async function handleLiveTracking(ws, data) {
 function broadcast(wss, message) {
   wss.clients.forEach(client => {
     if (client.readyState === WebSocket.OPEN) {
-      // Filter by auction subscription if applicable
       if (message.auctionId && client.auctionId !== message.auctionId) {
         return;
       }
@@ -125,5 +118,3 @@ function broadcast(wss, message) {
     }
   });
 }
-
-module.exports = { setupWebSocket };

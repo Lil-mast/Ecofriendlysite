@@ -1,7 +1,6 @@
 // core geospatial analysis service for identifying hotspots, optimizing routes, and finding eco-friendly locations
-const turf = require('@turf/turf');
-const { CarbonEntry } = require('../../models/mongodb');
-const { EcoHub } = require('../../models/mongodb');
+import * as turf from '@turf/turf';
+import { CarbonEntry, EcoHub } from '../../models/mongodb/index.js';
 
 class SpatialAnalysisService {
   constructor() {
@@ -306,4 +305,4 @@ class SpatialAnalysisService {
   }
 }
 
-module.exports = new SpatialAnalysisService();
+export default new SpatialAnalysisService();

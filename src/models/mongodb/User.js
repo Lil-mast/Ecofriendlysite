@@ -1,6 +1,6 @@
 // user model for MongoDB with comprehensive fields for both individual and organizational users, including geospatial data, carbon profile, sustainability goals, and preferences. This model supports authentication, role-based access control, and advanced querying capabilities for the EcoNexus API.
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
 
 const userSchema = new mongoose.Schema({
   email: { 
@@ -159,4 +159,4 @@ userSchema.virtual('carbonScore').get(function() {
   return Math.round((achieved / this.sustainabilityGoals.length) * 100);
 });
 
-module.exports = mongoose.model('User', userSchema);
+export default mongoose.model('User', userSchema);

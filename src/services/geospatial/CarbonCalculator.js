@@ -1,8 +1,8 @@
 // carbon calculator service for geospatial emissions estimation, designed to provide detailed and accurate carbon footprint calculations for various activities, including transportation, energy use, industrial processes, waste management, and consumption. This service integrates geospatial data to enhance the precision of emissions estimates and supports advanced features such as transport mode detection from GPS tracks and real-time grid carbon intensity retrieval.
-const turf = require('@turf/turf');
-const axios = require('axios');
-const NodeCache = require('node-cache');
-const config = require('../../config/environment');
+import * as turf from '@turf/turf';
+import axios from 'axios';
+import NodeCache from 'node-cache';
+import config from '../../config/environment.js';
 
 class CarbonCalculator {
   constructor() {
@@ -415,4 +415,4 @@ class CarbonCalculator {
   }
 }
 
-module.exports = new CarbonCalculator();
+export default new CarbonCalculator();
