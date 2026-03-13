@@ -73,7 +73,8 @@ The EcoFriendlySite is designed to help individuals and organizations monitor an
 
 3. Install pnpm (if not already installed):
    ```bash
-   npm install -g pnpm
+   corepack enable
+   corepack prepare pnpm@latest --activate
    ```
 
 4. Install dependencies:
