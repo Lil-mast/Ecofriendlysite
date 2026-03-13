@@ -1,4 +1,4 @@
-// File: src/server.js
+// server file for the EcoNexus API
 import http from 'http';
 import { app, initialize } from './app.js';
 import config from './config/environment.js';
@@ -12,10 +12,10 @@ async function start() {
     
     const server = http.createServer(app);
     
-    // Setup WebSocket
+    // Setup WebSocket for real-time communication
     setupWebSocket(server);
     
-    server.listen(PORT, () => {
+    server.listen(PORT, '0.0.0.0', () => {
       console.log(`🚀 Server running on port ${PORT}`);
       console.log(`📊 Environment: ${config.NODE_ENV}`);
       console.log(`🌐 API: http://localhost:${PORT}/api/v1`);

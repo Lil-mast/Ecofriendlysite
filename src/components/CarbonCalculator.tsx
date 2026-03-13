@@ -1,5 +1,54 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { Calculator, Car, Home, Plane, Zap } from 'lucide-react'
+import DistanceMap from './DistanceMap'
+
+const GLOBAL_AVG_TONS = 4.8
+
+type Breakdown = { transport: number; electricity: number; flights: number; diet: number }
+
+function getResultComment(total: number): { heading: string; body: string; variant: 'success' | 'warning' | 'danger' } {
+  if (total < 3.5) {
+    return {
+      heading: "You're doing great!",
+      body: `Your carbon footprint (${total.toFixed(1)} t) is well below the global average of ${GLOBAL_AVG_TONS} tons per person.`,
+      variant: 'success',
+    }
+  }
+  if (total <= 5.5) {
+    return {
+      heading: "You're around average",
+      body: `Your footprint (${total.toFixed(1)} t) is close to the global average of ${GLOBAL_AVG_TONS} tons. Small changes can bring it down.`,
+      variant: 'warning',
+    }
+  }
+  if (total <= 10) {
+    return {
+      heading: "Above average – room to improve",
+      body: `Your footprint (${total.toFixed(1)} t) is above the global average. Focus on your biggest categories below.`,
+      variant: 'warning',
+    }
+  }
+  return {
+    heading: "High footprint – consider reducing",
+    body: `Your footprint (${total.toFixed(1)} t) is much higher than average. Prioritize transport, flights, and energy.`,
+    variant: 'danger',
+  }
+}
+
+function getWaysToReduce(breakdown: Breakdown): string[] {
+  const entries: [keyof Breakdown, number, string[]][] = [
+    ['transport', breakdown.transport, ['Consider electric or hybrid vehicles', 'Carpool or use public transit', 'Combine errands to drive less']],
+    ['electricity', breakdown.electricity, ['Switch to a renewable energy provider', 'Use LED bulbs and turn off unused devices', 'Improve insulation and use a programmable thermostat']],
+    ['flights', breakdown.flights, ['Reduce air travel or choose direct flights', 'Offset flights with verified carbon credits', 'Use video calls instead of short business trips']],
+    ['diet', breakdown.diet, ['Try plant-based meals a few times a week', 'Reduce red meat and choose local produce', 'Cut food waste with meal planning']],
+  ]
+  entries.sort((a, b) => b[1] - a[1])
+  const top = entries.filter(([, v]) => v > 0).slice(0, 2)
+  const tips: string[] = []
+  top.forEach(([, , t]) => tips.push(...t.slice(0, 2)))
+  if (tips.length === 0) tips.push('Adjust the form and recalculate to get personalized tips.')
+  return tips
+}
 
 const CarbonCalculator = () => {
   const [formData, setFormData] = useState({
@@ -10,16 +59,24 @@ const CarbonCalculator = () => {
   })
 
   const [result, setResult] = useState<number | null>(null)
+  const [breakdown, setBreakdown] = useState<Breakdown | null>(null)
+
+  const { comment, waysToReduce } = useMemo(() => {
+    if (result === null || breakdown === null) return { comment: null, waysToReduce: [] }
+    return {
+      comment: getResultComment(result),
+      waysToReduce: getWaysToReduce(breakdown),
+    }
+  }, [result, breakdown])
 
   const calculateFootprint = () => {
-    // Simple calculation logic (in tons of CO2 per year)
     const transport = parseFloat(formData.transportation) * 2.4 || 0
     const electricity = parseFloat(formData.electricity) * 0.5 || 0
     const flights = parseFloat(formData.flights) * 0.2 || 0
     const diet = formData.diet === 'meat' ? 2.5 : formData.diet === 'vegetarian' ? 1.5 : 1.0
-
     const total = transport + electricity + flights + diet
     setResult(total)
+    setBreakdown({ transport, electricity, flights, diet })
   }
 
   return (
@@ -115,9 +172,9 @@ const CarbonCalculator = () => {
             Your Results
           </h3>
 
-          {result !== null ? (
+          {result !== null && comment ? (
             <div className="text-center">
-              <div className="text-6xl font-bold text-green-600 mb-4">
+              <div className="text-6xl font-bold text-green-600 dark:text-green-400 mb-4">
                 {result.toFixed(1)}
               </div>
               <div className="text-xl text-gray-600 dark:text-gray-400 mb-6">
@@ -125,22 +182,25 @@ const CarbonCalculator = () => {
               </div>
 
               <div className="space-y-4">
-                <div className="bg-green-50 dark:bg-green-900 p-4 rounded-lg">
-                  <h4 className="font-semibold text-green-800 dark:text-green-200 mb-2">
-                    You're doing great!
-                  </h4>
-                  <p className="text-sm text-green-700 dark:text-green-300">
-                    Your carbon footprint is below the global average of 4.8 tons per person.
-                  </p>
+                <div
+                  className={`p-4 rounded-lg ${
+                    comment.variant === 'success'
+                      ? 'bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-200'
+                      : comment.variant === 'warning'
+                        ? 'bg-amber-50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200'
+                        : 'bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-200'
+                  }`}
+                >
+                  <h4 className="font-semibold mb-2">{comment.heading}</h4>
+                  <p className="text-sm opacity-90">{comment.body}</p>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2 text-left">
                   <h4 className="font-semibold text-gray-900 dark:text-white">Ways to reduce:</h4>
                   <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                    <li>• Consider electric or hybrid vehicles</li>
-                    <li>• Switch to renewable energy providers</li>
-                    <li>• Reduce air travel or offset flights</li>
-                    <li>• Try plant-based meals a few times a week</li>
+                    {waysToReduce.map((tip, i) => (
+                      <li key={i}>• {tip}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -152,6 +212,16 @@ const CarbonCalculator = () => {
             </div>
           )}
         </div>
+      </div>
+
+      <div className="card mt-8">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          Track distance in real time
+        </h3>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+          Start tracking to see your path on the map and total distance traveled (e.g. for a trip or commute).
+        </p>
+        <DistanceMap />
       </div>
     </div>
   )
