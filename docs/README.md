@@ -44,7 +44,8 @@ The EcoFriendlySite is designed to help individuals and organizations monitor an
 - **Stripe**: Payment processing and secure transactions
 - **Webhooks**: Real-time payment notifications
 
-### DevOps & Infrastructure
+
+### DevOps & Infrastructure(yet to be implemented)
 - **Docker**: Containerization
 - **Kubernetes**: Container orchestration
 - **AWS/GCP**: Cloud infrastructure
@@ -61,21 +62,26 @@ The EcoFriendlySite is designed to help individuals and organizations monitor an
 ## Installation
 
 1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/Ecofriendlysite.git
+   ```bash
+   git clone https://github.com/yourusername/ecofriendlysite.git
    ```
 
 2. Navigate to the project directory:
-   ```
-   cd Ecofriendlysite
-   ```
-
-3. Install dependencies:
-   ```
-   npm install
+   ```bash
+   cd ecofriendlysite
    ```
 
-4. Set up environment variables:
+3. Install pnpm (if not already installed):
+   ```bash
+   npm install -g pnpm
+   ```
+
+4. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+5. Set up environment variables:
    - Copy `.env.example` to `.env` and fill in the required values:
      - `STRIPE_SECRET_KEY` - Stripe API secret key
      - `STRIPE_WEBHOOK_SECRET` - Stripe webhook secret
@@ -83,10 +89,16 @@ The EcoFriendlySite is designed to help individuals and organizations monitor an
      - `PG_HOST`, `PG_PORT`, `PG_DATABASE`, `PG_USER`, `PG_PASSWORD` - PostgreSQL credentials
      - API keys for: `ELECTRICITYMAP_API_KEY`, `HERE_API_KEY`, `ORS_API_KEY`, `OPENWEATHER_API_KEY`
 
-5. Start the development server:
+6. Start the development server:
+   ```bash
+   pnpm dev
    ```
-   npm run dev
-   ```
+
+## Available Scripts
+
+- `pnpm dev` - Start the development server
+- `pnpm build` - Build the project for production
+- `pnpm preview` - Preview the production build locally
 
 ## Architecture
 
