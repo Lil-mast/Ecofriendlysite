@@ -1,12 +1,13 @@
 // websocket server setup for real-time updates and live tracking
-import WebSocket from 'ws';
+import { WebSocketServer } from 'ws';
 import jwt from 'jsonwebtoken';
 import config from './config/environment.js';
 import CarbonCalculator from './services/geospatial/CarbonCalculator.js';
 import AuctionService from './services/commerce/AuctionService.js';
 
 export function setupWebSocket(server) {
-  const wss = new WebSocket.Server({ server, path: '/ws' });
+  // Use WebSocketServer instead of WebSocket.Server
+  const wss = new WebSocketServer({ server, path: '/ws' });
 
   wss.on('connection', async (ws, req) => {
     try {
@@ -42,12 +43,13 @@ export function setupWebSocket(server) {
     }
   });
 
+  // Auction events broadcasting
   AuctionService.on('bid_placed', (data) => {
     broadcast(wss, {
       type: 'auction_update',
       auctionId: data.auctionId,
       currentPrice: data.amount,
-      bidder: data.bidderId
+      bidder: data.bidderId,
     });
   });
 
@@ -55,7 +57,7 @@ export function setupWebSocket(server) {
     broadcast(wss, {
       type: 'auction_ended',
       auctionId: data.auctionId,
-      winner: data.winner
+      winner: data.winner,
     });
   });
 }
@@ -83,7 +85,7 @@ async function handleMessage(ws, data) {
 async function handleLiveTracking(ws, data) {
   const { points } = data;
 
-  if (points.length < 2) return;
+  if (!points || points.length < 2) return;
 
   const distance = CarbonCalculator.calculatePathDistance(
     points.map(p => ({ lng: p.lng, lat: p.lat }))
@@ -93,7 +95,7 @@ async function handleLiveTracking(ws, data) {
   const emissions = await CarbonCalculator.calculateTransportEmissions({
     mode,
     distance,
-    passengers: 1
+    passengers: 1,
   });
 
   ws.send(JSON.stringify({
@@ -102,15 +104,15 @@ async function handleLiveTracking(ws, data) {
     mode,
     emissions: {
       co2: Math.round(emissions.co2 * 1000) / 1000,
-      total: Math.round(emissions.totalCo2e * 1000) / 1000
+      total: Math.round(emissions.totalCo2e * 1000) / 1000,
     },
-    timestamp: Date.now()
+    timestamp: Date.now(),
   }));
 }
 
 function broadcast(wss, message) {
   wss.clients.forEach(client => {
-    if (client.readyState === WebSocket.OPEN) {
+    if (client.readyState === client.OPEN) {
       if (message.auctionId && client.auctionId !== message.auctionId) {
         return;
       }
