@@ -1,21 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTheme } from 'next-themes'
 import { Sun, Moon, Leaf, ShoppingCart, Calculator, User, LogOut } from 'lucide-react'
+import { useAuth } from '../contexts/AuthContext'
 
 const Navbar = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const { theme, setTheme } = useTheme()
-  const [isAuth, setIsAuth] = useState(false)
-
-  useEffect(() => {
-    setIsAuth(!!localStorage.getItem('token'))
-  }, [location.pathname])
+  const { isAuthenticated, logout } = useAuth()
 
   const handleSignOut = () => {
-    localStorage.removeItem('token')
-    setIsAuth(false)
+    logout()
     navigate('/')
   }
 
@@ -60,7 +56,7 @@ const Navbar = () => {
                 </Link>
               )
             })}
-            {!isAuth ? (
+            {!isAuthenticated ? (
               <>
                 <Link
                   to="/login"
