@@ -46,16 +46,14 @@ pgPool.on('connect', () => {
   console.log('PostgreSQL Connected');
 });
 
+// Only create Redis client when REDIS_URL is set (e.g. Upstash on Render). Otherwise rate limiting uses in-memory store.
 const redisClient = process.env.REDIS_URL
-  ? new Redis(process.env.REDIS_URL, { maxRetriesPerRequest: 3, retryStrategy: (times) => Math.min(times * 100, 3000) })
-  : new Redis({
-      host: process.env.REDIS_HOST || 'localhost',
-      port: parseInt(process.env.REDIS_PORT, 10) || 6379,
-      retryStrategy: (times) => Math.min(times * 50, 2000),
-    });
-
-redisClient.on('connect', () => {
-  console.log('Redis Connected');
-});
+  ? (() => {
+      const client = new Redis(process.env.REDIS_URL, { maxRetriesPerRequest: 3, retryStrategy: (times) => Math.min(times * 100, 3000) });
+      client.on('connect', () => console.log('Redis Connected'));
+      client.on('error', (err) => console.warn('Redis:', err.message));
+      return client;
+    })()
+  : null;
 
 export { connectMongoDB, pgPool, redisClient, mongoose };

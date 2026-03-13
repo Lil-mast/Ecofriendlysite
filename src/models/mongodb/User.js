@@ -133,9 +133,8 @@ const userSchema = new mongoose.Schema({
   toObject: { virtuals: true }
 });
 
-// Indexes
+// Indexes (email already has unique index via schema option)
 userSchema.index({ location: '2dsphere' });
-userSchema.index({ email: 1 });
 userSchema.index({ 'organization.verificationStatus': 1 });
 userSchema.index({ createdAt: -1 });
 

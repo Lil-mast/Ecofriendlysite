@@ -109,10 +109,18 @@ The EcoNexus API is a **Node.js Express** server. It does **not** run on Cloudfl
 
 1. Go to [render.com](https://render.com), sign in.
 2. **New** → **Web Service** → connect the repo.
-3. **Build command:** `pnpm install && pnpm run build` (if you have a build step for the server; otherwise `pnpm install`).
+3. **Build command:** `pnpm install --frozen-lockfile; pnpm run build` (or `pnpm install` if you don’t need the frontend build on Render).
 4. **Start command:** `node src/server.js` (or `pnpm start`).
-5. **Environment:** Add the same variables as in `.env`.
+5. **Environment:** Add the same variables as in `.env` (see [Render troubleshooting](#render-troubleshooting) below for MongoDB and Redis).
 6. Use the generated URL (e.g. `https://your-service.onrender.com`) as `VITE_API_URL` and set `FRONTEND_URL` on the API.
+
+#### Render troubleshooting
+
+- **MongoDB Atlas "IP not whitelisted"**  
+  Render’s outbound IPs are not fixed. In [MongoDB Atlas](https://www.mongodb.com/docs/atlas/security-whitelist/) → your project → **Network Access** → **Add IP Address**, either add **Allow access from anywhere** (`0.0.0.0/0`) or add [Render’s outbound IP ranges](https://render.com/docs/outbound-ip-addresses) if you prefer to restrict.
+
+- **Redis (optional)**  
+  The app works without Redis. If you do not set `REDIS_URL` on Render, rate limiting uses an in-memory store (fine for a single instance). For a shared Redis (e.g. multiple instances), create an [Upstash Redis](https://upstash.com/) database and set `REDIS_URL` in Render’s environment.
 
 ### Option 3: Fly.io
 

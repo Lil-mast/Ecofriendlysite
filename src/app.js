@@ -27,25 +27,23 @@ app.use(cors({
   credentials: true
 }));
 
-// Rate limiting
-const limiter = rateLimit({
-  store: new RedisStore({
-    sendCommand: (...args) => redisClient.call(...args),
-  }),
+// Rate limiting: use Redis store when REDIS_URL is set (e.g. Render + Upstash), otherwise in-memory
+const limiterOptions = {
   windowMs: config.RATE_LIMIT_WINDOW_MS,
   max: config.RATE_LIMIT_MAX,
-  message: 'Too many requests from this IP'
-});
+  message: 'Too many requests from this IP',
+};
+if (redisClient) {
+  limiterOptions.store = new RedisStore({ sendCommand: (...args) => redisClient.call(...args) });
+}
+const limiter = rateLimit(limiterOptions);
 app.use('/api/', limiter);
 
-// Stricter limits for carbon calculations
-const carbonLimiter = rateLimit({
-  store: new RedisStore({
-    sendCommand: (...args) => redisClient.call(...args),
-  }),
-  windowMs: 60 * 1000,
-  max: 30
-});
+const carbonLimiterOptions = { windowMs: 60 * 1000, max: 30 };
+if (redisClient) {
+  carbonLimiterOptions.store = new RedisStore({ sendCommand: (...args) => redisClient.call(...args) });
+}
+const carbonLimiter = rateLimit(carbonLimiterOptions);
 app.use('/api/carbon/', carbonLimiter);
 
 // Body parsing
