@@ -96,9 +96,52 @@ The EcoFriendlySite is designed to help individuals and organizations monitor an
 
 ## Available Scripts
 
-- `pnpm dev` - Start the development server
+- `pnpm dev` - Start the development server (frontend)
 - `pnpm build` - Build the project for production
 - `pnpm preview` - Preview the production build locally
+- `pnpm lint` - Run ESLint for code quality checks
+
+## Backend Setup
+
+The backend is built with Node.js, Express, and uses both MongoDB and PostgreSQL databases.
+
+### Database Setup
+
+1. **MongoDB**: Used for flexible document storage (carbon entries, user profiles, etc.)
+2. **PostgreSQL**: Used for structured data (orders, transactions, etc.)
+
+Make sure both databases are running and properly configured in your `.env` file.
+
+### Starting the Backend
+
+The backend server runs alongside the frontend. The API endpoints are available at `http://localhost:3001` (configured in the backend code).
+
+## Development Workflow
+
+1. **Frontend Development**: Run `pnpm dev` for hot-reloaded React development
+2. **Backend Development**: The backend runs automatically with the frontend in development mode
+3. **Database**: Ensure MongoDB and PostgreSQL are running locally or use cloud instances
+4. **Environment**: Copy `.env.example` to `.env` and configure all required variables
+
+## Deployment
+
+### Frontend Deployment
+```bash
+pnpm build
+```
+This creates a `dist/` folder with optimized production assets.
+
+### Backend Deployment
+The backend can be deployed to services like Heroku, Railway, or Vercel Functions.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Make your changes and test thoroughly
+4. Commit your changes: `git commit -am 'Add new feature'`
+5. Push to the branch: `git push origin feature/your-feature`
+6. Submit a pull request
 
 ## Architecture
 
