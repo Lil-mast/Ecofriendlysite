@@ -91,7 +91,7 @@ const CarbonCalculator = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="card">
+        <div className="p-8 bg-white/70 backdrop-blur-sm shadow-2xl rounded-3xl border border-gray-200/50 dark:bg-gray-900/60 dark:border-gray-700/50">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 flex items-center space-x-2">
             <Calculator className="h-5 w-5" />
             <span>Calculate Your Footprint</span>
@@ -159,7 +159,7 @@ const CarbonCalculator = () => {
 
             <button
               onClick={calculateFootprint}
-              className="btn-primary w-full flex items-center justify-center space-x-2 py-3"
+              className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2"
             >
               <Calculator className="h-4 w-4" />
               <span>Calculate Footprint</span>
@@ -167,7 +167,7 @@ const CarbonCalculator = () => {
           </div>
         </div>
 
-        <div className="card">
+        <div className="p-8 bg-white/70 backdrop-blur-sm shadow-2xl rounded-3xl border border-gray-200/50 dark:bg-gray-900/60 dark:border-gray-700/50">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
             Your Results
           </h3>
@@ -214,7 +214,7 @@ const CarbonCalculator = () => {
         </div>
       </div>
 
-      <div className="card mt-8">
+      <div className="p-8 bg-white/70 backdrop-blur-sm shadow-2xl rounded-3xl border border-gray-200/50 dark:bg-gray-900/60 dark:border-gray-700/50 mt-8">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
           Track distance in real time
         </h3>

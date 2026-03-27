@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { MapContainer, TileLayer, Polyline, useMap, CircleMarker } from 'react-leaflet'
 import L from 'leaflet'
-import 'leaflet/dist/leaflet.css'
 
 function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const R = 6371
@@ -25,8 +24,8 @@ function FitBoundsOnce({ path }: { path: [number, number][] }) {
       const bounds = L.latLngBounds(path)
       map.fitBounds(bounds, { padding: [24, 24], maxZoom: 16 })
     }
-  }, [map, path])
-  return null
+  }, [path])
+  return null as React.ReactNode
 }
 
 const DistanceMap: React.FC = () => {
@@ -94,6 +93,7 @@ const DistanceMap: React.FC = () => {
             type="button"
             onClick={startTracking}
             className="px-4 py-2 rounded-lg bg-green-600 hover:bg-green-700 text-white text-sm font-medium"
+            disabled={!navigator.geolocation}
           >
             Start tracking
           </button>
@@ -115,15 +115,15 @@ const DistanceMap: React.FC = () => {
           {error}
         </p>
       )}
-      <div className="h-80 w-full rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 z-0">
+      <div className="h-80 w-full rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 z-0 relative">
         <MapContainer
           center={center}
           zoom={hasPath ? 14 : 10}
-          className="h-full w-full"
-          scrollWheelZoom
+          style={{ height: '100%', width: '100%' }}
+          scrollWheelZoom={true}
         >
           <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {path.length > 0 && <Polyline positions={path} color="#16a34a" weight={4} />}
@@ -134,7 +134,9 @@ const DistanceMap: React.FC = () => {
               pathOptions={{ color: '#15803d', fillColor: '#22c55e', weight: 2 }}
             />
           )}
-          {path.length >= 2 && <FitBoundsOnce path={path} />}
+          {/* FitBoundsOnce - conditional to avoid StrictMode double-mount */}
+          {path.length >= 2 && path.every(p => p[0] && p[1]) && <FitBoundsOnce path={path} />}
+
         </MapContainer>
       </div>
     </div>
